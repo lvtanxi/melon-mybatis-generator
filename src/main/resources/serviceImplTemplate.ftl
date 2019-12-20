@@ -2,11 +2,7 @@ package ${packages.serviceImplPackage};
 
 import org.springframework.stereotype.Service;
 <#if !plus>
-<#if auto>
 import org.springframework.beans.factory.annotation.Autowired;
-<#else>
-import javax.annotation.Resource;
-</#if>
 </#if>
 import ${packages.mapperPackage}.${entityName}Mapper;
 import ${packages.servicePackage}.${entityName}Service;
@@ -48,8 +44,12 @@ import ${packages.superDtoUtilsPackage};
 public class ${entityName}ServiceImpl<#if plus> extends ServiceImpl<${entityName}Mapper, ${entityNameWithSuffix}></#if> implements ${entityName}Service {
 <#if !plus>
 
-	@${injection}
-	private ${entityName}Mapper ${entityMapper};
+    private final ${entityName}Mapper ${entityMapper};
+
+    @Autowired
+    public ${entityName}ServiceImpl(${entityName}Mapper ${entityMapper}) {
+        this.${entityMapper} = ${entityMapper};
+    }
 </#if>
 
 <#if plus>
