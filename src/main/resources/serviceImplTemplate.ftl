@@ -114,8 +114,8 @@ public class ${entityName}ServiceImpl<#if plus> extends ServiceImpl<${entityName
 <#if pagedName.paged>
 
 	@Override
-	public ${pagedName.pagedInfoName}<ShopRoleDTO> paged(${entityName}QueryParam condition) {
-		return ${dtoUtils}.toPage(${entityMapper}.findByBuilder(this.buildQueryBuilder(condition)),  ${entityDTOName}.class);
+	public ${pagedName.pagedInfoName}<${entityDTOName}> paged(${entityName}QueryParam condition) {
+		return ${dtoUtils}.toPage(this.gets(condition), ${entityDTOName}.class);
 	}
 </#if>
 

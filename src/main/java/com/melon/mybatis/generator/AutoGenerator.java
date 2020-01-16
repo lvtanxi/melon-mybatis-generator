@@ -14,14 +14,14 @@ import lombok.var;
  */
 public class AutoGenerator {
     private final static String PACKAGE_NAME = "com.demo.mx";
-    private final static String DB_URL = "jdbc:mysql://39.106.22.129:33060/heijiyun_edu?useUnicode=true&characterEncoding=utf-8&useSSL=true";
-    private final static String DB_USER_NAME = "root";
-    private final static String DB_PASSWORD = "8hi#geek0@sql";
+    private final static String DB_URL = "jdbc:mysql://10.248.224.12:21202/xs_settlement?useUnicode=true&characterEncoding=utf-8&useSSL=true";
+    private final static String DB_USER_NAME = "scm";
+    private final static String DB_PASSWORD = "3AiZXRGBIFE9V18";
     private final static String OUTPUT_DIR = "C://Users//melon//Desktop//springboot-log";
 
 
     public static void main(String[] args) {
-        String tables = "shop_role";
+        String tables = "cx_pay_bill";
         generateByTables(tables.split(","));
     }
 
@@ -39,7 +39,7 @@ public class AutoGenerator {
                 .setEntityLombokModel(true)
                 .setSuperEntityClass("com.demo.mx.domain.entity.BaseDO")
                 .setSuperQueryParam("com.demo.mx.domain.param.PageQuery")
-                .setSuperEntityColumns("id", "is_del", "create_time", "update_time","shop_id")
+                .setSuperEntityColumns("id", "create_time", "update_time","yn")
                 .setSuperDtoClass("com.demo.mx.domain.dto.BaseDTO")
                 .setSuperDtoColumns("id")
                 .setDtoUtils("com.demo.mx.infr.utils.DTOUtils")
